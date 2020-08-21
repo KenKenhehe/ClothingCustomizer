@@ -1,0 +1,33 @@
+WinManager:
+    MainWin:
+    MenuWin:
+
+<MainWin>:
+    name: "Main"
+
+    GridLayout:
+        cols: 1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Your style"
+            
+            TextInput:
+                id: cloth
+
+        Button:
+            text: "Confirm"           
+            on_release: 
+                app.root.current = "Menu"  if cloth.text != "" else "Main"   
+                root.manager.transition.direction = "left"
+
+<MenuWin>:
+    name:"Menu"
+
+    Button:
+        text: "Return to main"
+        on_release: 
+            app.root.current = "Main"     
+            root.manager.transition.direction = "right"

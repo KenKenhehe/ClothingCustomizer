@@ -1,34 +1,26 @@
-import kivy
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-class MyGrid(GridLayout):
-    def __init__(self, **kwargs):
-        super(MyGrid, self).__init__(**kwargs)
-        self.cols = 2
-        self.add_widget(Label(text="length: "))
-        self.name = TextInput(multiline=False)
-        self.add_widget(self.name)
+class MainWin(Screen):
+    pass
 
-        self.add_widget(Label(text="softness: "))
-        self.name = TextInput(multiline=False)
-        self.add_widget(self.name)
 
-        self.add_widget(Label(text="price: "))
-        self.name = TextInput(multiline=False)
-        self.add_widget(self.name)
+class MenuWin(Screen):
+    pass
 
-        self.submit = Button(text="confirm", font_size=30)
-        self.add_widget(self.submit)
+
+class WinManager(ScreenManager):
+    pass
+
+
+kv = Builder.load_file('guimain.kv')
 
 
 class GuiMain(App):
     def build(self):
-        return MyGrid()
+        return kv
 
 
 if __name__ == "__main__":
