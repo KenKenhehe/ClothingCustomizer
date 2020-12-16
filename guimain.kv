@@ -20,8 +20,17 @@ WinManager:
         Button:
             text: "Confirm"           
             on_release: 
-                app.root.current = "Menu"  if cloth.text != "" else "Main"   
-                root.manager.transition.direction = "left"
+                root.btn()
+                # app.root.current = "Menu" if cloth.text != "" else "Main"   
+                # root.manager.transition.direction = "left"
+                # root.btn()
+<PopWin>:
+    Label:
+        text: "Press here"
+
+    Button:
+        text: "P"           
+           
 
 <MenuWin>:
     name:"Menu"
